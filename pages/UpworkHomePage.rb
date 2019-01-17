@@ -2,7 +2,7 @@ require_relative "../pages/BasePage"
 
 class UpworkHomePage < BasePage
 
-  SEARCH_TEXTBOX = { xpath: "//input[@name='q']" }
+  SEARCH_TEXTBOX = { css: "input[data-o-freelancer-search-input]" }
   SEARCH_BUTTON = { css: "span.air-icon-search" }
   FREELANCER_OPTION = { link_text: "Freelancers" }
   SELECT_SEARCH_DROPDOWN = { xpath: "//span[@class='caret glyphicon air-icon-arrow-expand']" }
@@ -14,7 +14,7 @@ class UpworkHomePage < BasePage
   end
 
   def search_for(search_term)
-    #wait_for { displayed?(SEARCH_TEXTBOX) }
+    wait_for { displayed?(SEARCH_TEXTBOX) }
     type_on_hidden_input(SEARCH_TEXTBOX, search_term)
     type SEARCH_TEXTBOX, search_term
     wait_for { displayed?(SEARCH_BUTTON) }

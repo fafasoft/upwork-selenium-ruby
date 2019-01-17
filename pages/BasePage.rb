@@ -31,9 +31,9 @@ class BasePage
   end
 
   def type_on_hidden_input(locator, inputText)
-    element = @browser.find_element(locator)[0]
-    @browser..execute_script("document.getElementsByName('q')[0].focus();")
-    @browser..execute_script("document.getElementsByName('q')[0].style.display='block';")
+    element = @browser.find_element(locator)
+    @browser.execute_script("arguments[0].focus();", element )
+    @browser.execute_script("arguments[0].style.display='block';", element )
 
     @browser.action.move_to(element).click()
     @browser.action.perform()
@@ -44,7 +44,7 @@ class BasePage
   end
 
   def find(locator)
-    browser.find_element(locator)[0]
+    browser.find_element(locator)
   end
 
   def clear(locator)
