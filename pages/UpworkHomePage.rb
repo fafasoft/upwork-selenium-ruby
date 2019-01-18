@@ -7,10 +7,11 @@ class UpworkHomePage < BasePage
   FREELANCER_OPTION = { link_text: "Freelancers" }
   SELECT_SEARCH_DROPDOWN = { xpath: "//span[@class='caret glyphicon air-icon-arrow-expand']" }
 
-  def initialize()
+  def initialize(driver)
     super
     visit
-    verify_page
+    text = "Upwork - Hire Freelancers"
+    verify_page text
   end
 
   def search_for(search_term)
@@ -21,22 +22,11 @@ class UpworkHomePage < BasePage
     click_on SEARCH_BUTTON
   end
 
-  def search_result_present?(search_result)
-    wait_for { displayed?(TOP_SEARCH_RESULT) }
-    text_of(TOP_SEARCH_RESULT).include? search_result
-  end
-
   def set_freelancer_option
     wait_for { displayed?(SELECT_SEARCH_DROPDOWN) }
     click_on SELECT_SEARCH_DROPDOWN
     wait_for { displayed?(FREELANCER_OPTION) }
     click_on FREELANCER_OPTION
     wait_for { displayed?(FREELANCER_OPTION) }
-  end
-
-  private
-
-  def verify_page
-    wait_for { title.include?("Upwork - Hire Freelancers") }
   end
 end

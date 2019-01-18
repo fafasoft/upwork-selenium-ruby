@@ -4,47 +4,32 @@ class BasePage
 
   attr_reader :browser
 
-  def initialize()
-    case $browser
-    when /IE/i
-      @browser = Selenium::WebDriver.for :internet_explorer
-    when /chrome/i
-      options = Selenium::WebDriver::Chrome::Options.new(args: ['--start-maximized'])
-      @browser = Selenium::WebDriver.for(:chrome, options: options)
-      #@browser = Selenium::WebDriver.for :chrome
-    when /firefox/i
-      options = Selenium::WebDriver::Firefox::Options.new
-      profile = Selenium::WebDriver::Firefox::Profile.new
-      options.profile = profile
-      options.add_preference("moz:webdriverClick", false)
-      @browser = Selenium::WebDriver.for :firefox, options: options
-
-      #Selenium::WebDriver::Firefox::Binary.path = '/Users/fabricioforuria/Documents/geckodriver'
-      #@browser = Selenium::WebDriver.for :firefox
-    else
-      fail("First parameter Browser '#{$browser}' is not recognized. It must be: firefox, chrome, ie.")
-    end
-    @browser.manage.timeouts.implicit_wait = 5
-    @browser.manage.delete_all_cookies
-    @browser.manage.window.maximize
-
+  def initialize(browser)
+    @browser = browser
   end
 
   def type_on_hidden_input(locator, inputText)
-    element = @browser.find_element(locator)
-    @browser.execute_script("arguments[0].focus();", element )
-    @browser.execute_script("arguments[0].style.display='block';", element )
-
-    @browser.action.move_to(element).click()
-    @browser.action.perform()
+    element = browser.find_element(locator)
+    browser.execute_script("arguments[0].focus();", element )
+    browser.execute_script("arguments[0].setAttribute('style', 'block');", element )
+    browser.action.move_to(element).click()
+    browser.action.perform()
   end
 
   def visit(url='/')
     browser.get($base_url + url)
   end
 
+  def navigate(url)
+    browser.navigate.to($base_url + url)
+  end
+
   def find(locator)
     browser.find_element(locator)
+  end
+
+  def get_array(locator)
+    browser.find_elements(locator)
   end
 
   def clear(locator)
@@ -78,6 +63,9 @@ class BasePage
     Selenium::WebDriver::Wait.new(:timeout => seconds).until { yield }
   end
 
+  def verify_page(text)
+    wait_for { title.include?(text.to_s) }
+  end
 
   def teardown
     browser.quit
