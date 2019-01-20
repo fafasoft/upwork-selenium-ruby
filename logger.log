@@ -1,0 +1,64 @@
+I, [2019-01-20T16:21:38.983367 #12180]  INFO -- : STEP 1: Run firefox browser.
+I, [2019-01-20T16:21:38.985526 #12180]  INFO -- : STEP 2: Clear the browser firefox cookies.
+I, [2019-01-20T16:21:38.987475 #12180]  INFO -- : STEP 3: Navigate to the following URL: http://www.upwork.com.
+I, [2019-01-20T16:21:46.014259 #12180]  INFO -- : STEP 4: Focus onto 'Find freelancers' on the top dropdown.
+I, [2019-01-20T16:21:46.040354 #12180]  INFO -- : STEP 5: Select 'Find Freelancers' on the top dropdown and enter Ruby and submit it (click on the magnifying glass button).
+I, [2019-01-20T16:21:46.136756 #12180]  INFO -- : STEP 6: Click on the magnifying glass button and submit it.
+I, [2019-01-20T16:22:08.482611 #12180]  INFO -- : STEP 7: Parse the 1st page with search results: store info given on the 1st page of search results as structured data of any chosen by you type (i.e. hash of hashes or array of hashes, whatever structure handy to be parsed).
+I, [2019-01-20T16:22:08.485926 #12180]  INFO -- : STEP 8: Make sure at least one attribute (title, overview, skills, etc) of each item (found freelancer) from parsed search results contains 'Ruby' Log in stdout which freelancers and attributes contain 'Ruby' and which do not.
+I, [2019-01-20T16:22:08.515188 #12180]  INFO -- : STEP 9: Click on random freelancer's title.
+I, [2019-01-20T16:22:13.524290 #12180]  INFO -- : STEP 10: Get into that freelancer's profile (by clicking on desired Freelancer's title).
+I, [2019-01-20T16:26:43.743115 #12220]  INFO -- : STEP 1: Run firefox browser.
+I, [2019-01-20T16:26:43.745031 #12220]  INFO -- : STEP 2: Clear the browser firefox cookies.
+I, [2019-01-20T16:26:43.746806 #12220]  INFO -- : STEP 3: Navigate to the following URL: http://www.upwork.com.
+I, [2019-01-20T16:26:50.996494 #12220]  INFO -- : STEP 4: Focus onto 'Find freelancers' on the top dropdown.
+I, [2019-01-20T16:26:51.025132 #12220]  INFO -- : STEP 5: Select 'Find Freelancers' on the top dropdown and enter Ruby and submit it (click on the magnifying glass button).
+I, [2019-01-20T16:26:51.118882 #12220]  INFO -- : STEP 6: Click on the magnifying glass button and submit it.
+I, [2019-01-20T16:26:59.369769 #12220]  INFO -- : STEP 7: Parse the 1st page with search results: store info given on the 1st page of search results as structured data of any chosen by you type (i.e. hash of hashes or array of hashes, whatever structure handy to be parsed).
+I, [2019-01-20T16:26:59.373107 #12220]  INFO -- : STEP 8: Make sure at least one attribute (title, overview, skills, etc) of each item (found freelancer) from parsed search results contains 'Ruby' Log in stdout which freelancers and attributes contain 'Ruby' and which do not.
+I, [2019-01-20T16:26:59.401470 #12220]  INFO -- : STEP 9: Click on random freelancer's title.
+I, [2019-01-20T16:27:04.413562 #12220]  INFO -- : STEP 10: Get into that freelancer's profile (by clicking on desired Freelancer's title).
+I, [2019-01-20T16:27:04.787485 #12220]  INFO -- : STEP 11: Check that each attribute value is equal to one of those stored in the structure created in STEPS 7 and 8.
+I, [2019-01-20T16:27:04.788968 #12220]  INFO -- : STEP 12: Check whether at least one attribute contains Ruby.
+I, [2019-01-20T16:34:23.926002 #12277]  INFO -- : STEP 1: Run firefox browser.
+I, [2019-01-20T16:34:23.929196 #12277]  INFO -- : STEP 2: Clear the browser firefox cookies.
+I, [2019-01-20T16:34:23.930943 #12277]  INFO -- : STEP 3: Navigate to the following URL: http://www.upwork.com.
+I, [2019-01-20T16:34:31.180209 #12277]  INFO -- : STEP 4: Focus onto 'Find freelancers' on the top dropdown.
+I, [2019-01-20T16:34:31.210997 #12277]  INFO -- : STEP 5: Select 'Find Freelancers' on the top dropdown and enter Ruby and submit it (click on the magnifying glass button).
+I, [2019-01-20T16:34:31.291943 #12277]  INFO -- : STEP 6: Click on the magnifying glass button and submit it.
+I, [2019-01-20T16:34:40.425497 #12277]  INFO -- : STEP 7: Parse the 1st page with search results: store info given on the 1st page of search results as structured data of any chosen by you type (i.e. hash of hashes or array of hashes, whatever structure handy to be parsed).
+I, [2019-01-20T16:34:40.429585 #12277]  INFO -- : STEP 8: Make sure at least one attribute (title, overview, skills, etc) of each item (found freelancer) from parsed search results contains 'Ruby' Log in stdout which freelancers and attributes contain 'Ruby' and which do not.
+I, [2019-01-20T16:34:40.475303 #12277]  INFO -- : STEP 9: Click on random freelancer's title.
+I, [2019-01-20T16:34:45.485549 #12277]  INFO -- : STEP 10: Get into that freelancer's profile (by clicking on desired Freelancer's title).
+I, [2019-01-20T16:34:45.815652 #12277]  INFO -- : STEP 11: Check that each attribute value is equal to one of those stored in the structure created in STEPS 7 and 8.
+I, [2019-01-20T16:34:45.817383 #12277]  INFO -- : STEP 12: Check whether at least one attribute contains Ruby.
+E, [2019-01-20T16:34:45.818779 #12277] ERROR -- : ERROR!!! => Description differs between profiles search results and freelancer profile for Lyubomyr F..
+E, [2019-01-20T16:34:45.857196 #12277] ERROR -- : ERROR: Title differs between profiles search results and freelancer profile for Lyubomyr F..
+E, [2019-01-20T16:34:45.858882 #12277] ERROR -- : TEST FAILED!!!
+I, [2019-01-20T16:34:57.482400 #12304]  INFO -- : STEP 1: Run firefox browser.
+I, [2019-01-20T16:34:57.484028 #12304]  INFO -- : STEP 2: Clear the browser firefox cookies.
+I, [2019-01-20T16:34:57.485595 #12304]  INFO -- : STEP 3: Navigate to the following URL: http://www.upwork.com.
+I, [2019-01-20T16:34:59.705179 #12304]  INFO -- : STEP 4: Focus onto 'Find freelancers' on the top dropdown.
+I, [2019-01-20T16:35:00.809886 #12304]  INFO -- : STEP 5: Select 'Find Freelancers' on the top dropdown and enter Ruby and submit it (click on the magnifying glass button).
+I, [2019-01-20T16:35:01.894929 #12304]  INFO -- : STEP 6: Click on the magnifying glass button and submit it.
+E, [2019-01-20T16:35:15.061493 #12304] ERROR -- : TEST FAILED!!!
+I, [2019-01-20T16:35:21.361285 #12321]  INFO -- : STEP 1: Run firefox browser.
+I, [2019-01-20T16:35:21.363490 #12321]  INFO -- : STEP 2: Clear the browser firefox cookies.
+I, [2019-01-20T16:35:21.365355 #12321]  INFO -- : STEP 3: Navigate to the following URL: http://www.upwork.com.
+I, [2019-01-20T16:35:29.813146 #12321]  INFO -- : STEP 4: Focus onto 'Find freelancers' on the top dropdown.
+I, [2019-01-20T16:35:29.846467 #12321]  INFO -- : STEP 5: Select 'Find Freelancers' on the top dropdown and enter Ruby and submit it (click on the magnifying glass button).
+I, [2019-01-20T16:35:29.947330 #12321]  INFO -- : STEP 6: Click on the magnifying glass button and submit it.
+E, [2019-01-20T16:35:47.628600 #12321] ERROR -- : TEST FAILED!!!
+I, [2019-01-20T16:37:00.011002 #12345]  INFO -- : STEP 1: Run firefox browser.
+I, [2019-01-20T16:37:00.012625 #12345]  INFO -- : STEP 2: Clear the browser firefox cookies.
+I, [2019-01-20T16:37:00.014125 #12345]  INFO -- : STEP 3: Navigate to the following URL: http://www.upwork.com.
+I, [2019-01-20T16:37:06.281915 #12345]  INFO -- : STEP 4: Focus onto 'Find freelancers' on the top dropdown.
+I, [2019-01-20T16:37:06.326878 #12345]  INFO -- : STEP 5: Select 'Find Freelancers' on the top dropdown and enter Ruby and submit it (click on the magnifying glass button).
+I, [2019-01-20T16:37:06.445433 #12345]  INFO -- : STEP 6: Click on the magnifying glass button and submit it.
+I, [2019-01-20T16:37:15.648844 #12345]  INFO -- : STEP 7: Parse the 1st page with search results: store info given on the 1st page of search results as structured data of any chosen by you type (i.e. hash of hashes or array of hashes, whatever structure handy to be parsed).
+I, [2019-01-20T16:37:15.652737 #12345]  INFO -- : STEP 8: Make sure at least one attribute (title, overview, skills, etc) of each item (found freelancer) from parsed search results contains 'Ruby' Log in stdout which freelancers and attributes contain 'Ruby' and which do not.
+I, [2019-01-20T16:37:15.691579 #12345]  INFO -- : STEP 9: Click on random freelancer's title.
+I, [2019-01-20T16:37:20.701147 #12345]  INFO -- : STEP 10: Get into that freelancer's profile (by clicking on desired Freelancer's title).
+I, [2019-01-20T16:37:21.124644 #12345]  INFO -- : STEP 11: Check that each attribute value is equal to one of those stored in the structure created in STEPS 7 and 8.
+I, [2019-01-20T16:37:21.126375 #12345]  INFO -- : STEP 12: Check whether at least one attribute contains Ruby.
+I, [2019-01-20T16:37:21.189392 #12345]  INFO -- : TEST PASSED WITH SUCCESS.

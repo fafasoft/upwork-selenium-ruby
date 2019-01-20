@@ -1,4 +1,5 @@
 require 'selenium-webdriver'
+require 'logger'
 
 class BasePage
 
@@ -8,12 +9,8 @@ class BasePage
     @browser = browser
   end
 
-  def type_on_hidden_input(locator, inputText)
-    element = browser.find_element(locator)
-    browser.execute_script("arguments[0].focus();", element )
-    browser.execute_script("arguments[0].setAttribute('style', 'block');", element )
-    browser.action.move_to(element).click()
-    browser.action.perform()
+  def execute_script_on_element(script, element)
+    browser.execute_script(script, element)
   end
 
   def visit(url='/')
@@ -22,6 +19,14 @@ class BasePage
 
   def navigate(url)
     browser.navigate.to($base_url + url)
+  end
+
+  def scroll_to_element(elem)
+    browser.action.move_to(elem).perform
+  end
+
+  def click_to_element(elem)
+    browser.action.click(elem).perform
   end
 
   def find(locator)
@@ -71,9 +76,24 @@ class BasePage
     browser.quit
   end
 
+  def clear_log_file
+    # Parameter File::CREAT ensures the log file will be re-created every time this method is called
+  file = File.open('logger.log', File::WRONLY | File::APPEND | File::CREAT)
+    logger = Logger.new(file)
+  end
+
+  # This method logs info for both log file and STDOUT.
+  def log(text)
+    log = Logger.new("| tee -a logger.log") # note the pipe ( '|' )
+    log.info text # will log to both STDOUT and logger.log
+  end
+
+  # This method logs error for both log file and STDOUT.
+  def error(text)
+    log = Logger.new("| tee -a logger.log") # note the pipe ( '|' )
+    log.error text # will log to both STDOUT and logger.log
+  end
 end
-
-
 
 
 

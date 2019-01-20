@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
-
-require "selenium/webdriver"
+require 'selenium-webdriver'
 require_relative '../pages/UpworkHomePage'
 require_relative '../pages/UpworkProfilesPage'
 
@@ -9,6 +8,7 @@ class TestSearchKeyword
   $base_url = "http://www.upwork.com"
   $browser = ARGV[0]
   $keyword = ARGV[1]
+  # This boolean variable is set to true in advance for every test and set to false only if any condition is not met
   $test_result = true
 
   def init_driver
@@ -16,18 +16,9 @@ class TestSearchKeyword
     when /IE/i
       @driver = Selenium::WebDriver.for :internet_explorer
     when /chrome/i
-      options = Selenium::WebDriver::Chrome::Options.new(args: ['--start-maximized'])
-      @driver = Selenium::WebDriver.for(:chrome, options: options)
-      #browser = Selenium::WebDriver.for :chrome
+      @driver = Selenium::WebDriver.for :chrome
     when /firefox/i
-      options = Selenium::WebDriver::Firefox::Options.new
-      profile = Selenium::WebDriver::Firefox::Profile.new
-      options.profile = profile
-      options.add_preference("moz:webdriverClick", false)
-      @driver = Selenium::WebDriver.for :firefox, options: options
-
-      #Selenium::WebDriver::Firefox::Binary.path = '/Users/fabricioforuria/Documents/geckodriver'
-      #@browser = Selenium::WebDriver.for :firefox
+      @driver = Selenium::WebDriver.for :firefox
     else
       fail("First parameter Browser '#{$browser}' is not recognized. It must be: firefox, chrome, ie.")
     end
@@ -38,27 +29,20 @@ class TestSearchKeyword
 
   def test_search_keyword
     init_driver
-    upworkHomePage = UpworkHomePage.new(@driver)
-    #upworkHomePage.search_for($keyword.to_s)
-    url = "/o/profiles/browse/?nbs=1&q=" + $keyword.to_s
-    upworkHomePage.navigate url
-    upworkProfilesPage = UpworkProfilesPage.new(@driver)
-    upworkProfilesPage.checkKeywordResults
+    upwork_profiles_page.log ":::::::::: TEST : GIVEN THAT ANONYMOUS USER IS ON LANDING PAGE WHEN SEARCH FOR A KEYWORD THEN ALL FREELANCERS RESULTS SHOWN HAVE THAT SAME KEYWORD IN SOME FIELDS ::::::::::"
+    upwork_home_page = UpworkHomePage.new(@driver)
+    upwork_home_page.search_for($keyword.to_s)
+    upwork_profiles_page = UpworkProfilesPage.new(@driver)
+    upwork_profiles_page.check_keyword_results
+    upwork_profiles_page.check_profile_attributes_match
     if $test_result == false
-      puts "TEST FAILED!"
+      upwork_profiles_page.error "TEST FAILED!!!"
     else
-      puts "TEST PASSES."
+      upwork_profiles_page.log "TEST PASSED WITH SUCCESS."
     end
-    upworkHomePage.teardown
+    upwork_home_page.teardown
   end
 end
-
-
-
-
-
-
-
 
 
 
